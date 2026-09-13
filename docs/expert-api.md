@@ -46,3 +46,9 @@ snapshot 是可读编译结果，不是可回写的完整 IR。`validation.compi
 带电气端口的真实模块必须提供明确的供电、接地、输入与负载环境；可注册专家编写的顶层测试载板，也可等后续组合接口显式连接。当前适配器不自动连接端口，不生成制造工件。
 
 环境变量 `EDG_JRE_DIR` 指向 JRE 安装根目录，其中包含一个 jre/jdk 子目录。设置它可避免默认下载至用户主目录。Windows 建议使用 `python -X utf8` 运行；上游测试的默认编码读取与 UTF-8 网表存在不兼容。
+
+## 首个实际电路模块
+
+`edg.expert.tipd175.tipd175_registry()` 注册 `ti.tipd175.dc_fixture` 版本 `0.1.0`。公开参数 `current_limit_a` 只接受 1 或 2，分别对应 TI 原参考配置和计算变体。注册项自带明确的供电与负载环境；实际可复用 Block 是 `Tipd175`。详见 [TIPD175 实现说明](tipd175-implementation.md)。
+
+离线审查工件通过 `python -X utf8 -m edg.expert.tipd175_demo --output DIR` 生成，与通用 Registry 的快照接口分开。该 demo 输出的网表和 BOM 包含未核对的 Kelvin 封装，不能用于生产。`dc_analysis()` 的角点失败不会被编译成功覆盖；调用方必须同时检查这些结果。

@@ -1,0 +1,73 @@
+{
+  "retrieved_on": "2026-09-13",
+  "service": "MinerU hosted precision API",
+  "model_version": "vlm",
+  "language": "en",
+  "enable_formula": true,
+  "enable_table": true,
+  "batch_id": "dd5d9bc9-c6f6-485c-82ed-009918d4fa98",
+  "state": "done",
+  "sources": [
+    {
+      "name": "tidu675.pdf",
+      "source": "https://www.ti.com/lit/pdf/TIDU675",
+      "sha256": "066e3e2816400fe137a4560c9c4225bb73e64695779a012edd09b2f60f163b14",
+      "bytes": 740915,
+      "artifacts": {
+        "0b523cc0-3740-4e3a-b570-7a6b6bcf74c3_content_list.json": "19cdd287cf0fc10dd6f39c6683ce3301f97b0031b07ec2ccf9c9938b20e14f17",
+        "0b523cc0-3740-4e3a-b570-7a6b6bcf74c3_content_list_v2.json": "ca6157a8b29a5cb95751d4e1ddcfa6152213aa54d770294a4a08cf3678aac479",
+        "0b523cc0-3740-4e3a-b570-7a6b6bcf74c3_model.json": "51029dc91dccb34c886e0ecba3539521bb523da6e381c5dafc4fed9136aeacb9",
+        "layout.json": "452432b8a75363356522c9e8582e2e97ad702e3e480f3fe7a8bf3e89b1e6cbd0",
+        "full.md": "33df1c073c7d621bc566bb185bd889f75813bf91dd56ec4270ecd20330887a49"
+      },
+      "mineru_returned_origin_sha256": "c85b55b05b9d3c3e0d2617d9f1a919665de076a170f0656f23995f7b93c898a4"
+    },
+    {
+      "name": "tidrg85.pdf",
+      "source": "https://www.ti.com/lit/pdf/TIDRG85",
+      "sha256": "ba7d5f8daece5ed46acf0ffab2b4210d33a6ba9aed52cf0fe6fd3f745df3816f",
+      "bytes": 105966,
+      "artifacts": {
+        "6bac79b0-7a2a-433f-a3a5-a91aac19e33c_content_list.json": "b287f7e95c6ece3d1e9cd551f30b4821439e008baf0f7dfd5108b42678567ab7",
+        "6bac79b0-7a2a-433f-a3a5-a91aac19e33c_content_list_v2.json": "36cd1960e5ca5fed8f83daa23e9d95a87a5055a4bfa97454050999e5db2e4855",
+        "6bac79b0-7a2a-433f-a3a5-a91aac19e33c_model.json": "ede4c4bc81f11f59acf2a6edb91d3cfd0a2452e5d0d3f467ea11e64a644baacc",
+        "layout.json": "4a66bf315dacc680cab4b49730e2e97dfa234385db006d2464e3ec7131383db0",
+        "full.md": "9a42bb0ef6b2d47ae5105a1558d4f75c818d752b8121a0c232dd74ed867dff7c"
+      },
+      "mineru_returned_origin_sha256": "616472b365b160ca107fc9770d322006c370f535634d463417c07614bb0e4f56"
+    },
+    {
+      "name": "tidrg86.pdf",
+      "source": "https://www.ti.com/lit/pdf/TIDRG86",
+      "sha256": "6f47c229fda3ad2be2d63f9d56b83fe6a5f60e9d8f9e84ae63d8ae3ee3bb0af9",
+      "bytes": 72154,
+      "artifacts": {
+        "09e7f6e9-ccee-4dc3-af86-0307aa845963_content_list.json": "0616daeae3a46f4a3e18e4563be08e7209cc4bb6c6925ffb4a551dd821240d3b",
+        "09e7f6e9-ccee-4dc3-af86-0307aa845963_content_list_v2.json": "e5a9643e98d29e5e8ecc7878331a48fde4e71664182c4718068a4da3f827c636",
+        "09e7f6e9-ccee-4dc3-af86-0307aa845963_model.json": "1f9cb1447ea9be29ce0d8ffdff4e699597ad1cb1bd896810c5f8fb40091b853d",
+        "layout.json": "c140d8a25037eab060f4ba882f6b4b5c3c8648df046219fd254508720bccc36c",
+        "full.md": "a3b0f0234b867da45b48b77b50580899718bb92c7bbf68d3b178bb2269519824"
+      },
+      "mineru_returned_origin_sha256": "e7d2373f42b02e7a869a6002705c737a8658fb92aa54e574b41112e4213f4699"
+    },
+    {
+      "name": "opa313.pdf",
+      "source": "https://www.ti.com/lit/ds/symlink/opa313.pdf",
+      "sha256": "efd83c020c6fd1cd6510ca6d9040c83065f33dc1fa630644839c0f092863a94f",
+      "bytes": 3247091,
+      "artifacts": {
+        "f18bf682-9a99-4362-b4c7-89adc8f75d73_content_list.json": "25e53382bfa173d9b2122e11659a4336bf56e8b976d334849cd76f6f92324274",
+        "f18bf682-9a99-4362-b4c7-89adc8f75d73_content_list_v2.json": "da28c0f0a8fdff094d26718b40a9c3e2bac7af46f15341ad04db6e3ce13fea25",
+        "f18bf682-9a99-4362-b4c7-89adc8f75d73_model.json": "8b875dd0ad6008738e031812552f8a2994e43e3615c95da5c54b67d042975bef",
+        "layout.json": "a52c3c6b423fb3fee32d8f3fc9a143d143b8db083edfd3a24359979b81c81423",
+        "full.md": "f51690cbb5866e55b38f47c8788561e099cf223c738dc380c5ec7d271d57ae91"
+      },
+      "mineru_returned_origin_sha256": "a014eeb6969075b6974b47a3df20f9b628d108b1c33376b7c8a81215d9dfbb05"
+    }
+  ],
+  "notes": [
+    "Original PDFs and full parsed artifacts remain in work/tipd175-sources; not redistributed in this repository.",
+    "Page references and review limits are in tipd175-implementation.md.",
+    "Service-returned origin PDFs are not byte-identical to locally downloaded PDFs; returned hashes identify service artifacts, not proof of input-byte identity. Critical topology and offset/swing values were visually checked against local originals."
+  ]
+}

@@ -46,17 +46,25 @@ git diff --check
 
 已创建并通过 `gh repo view --json isFork,parent,url` 确认远程 fork：https://github.com/shenyi97/PolymorphicBlocks ，父仓库为 BerkeleyHCI/PolymorphicBlocks。开发分支为 prototype/expert-library，上游 master 保持原始基线。最终推送以远端分支 SHA 与本地 HEAD 一致为验收条件。
 
-## 后续工作
+## SDK 阶段记录的后续工作
 
 1. 在远端开发分支继续迭代本原型，按 docs → SDK → TI 模块拆分改动。
 2. 获取并核对 TIPD175 的原始资料，按设计文档的验收表实现器件与完整子电路。
 3. 实现显式端口组合、可信环境载板及 BOM／网表交付接口。
 4. 生产服务采用独立 Python worker、超时和只读专家库；改善 Scala 端异常详情并重编 JAR。
 
-本轮不包含 TIPD175 实际实现、原理图自动生成、SPICE 验证或 PCB 布局。
+上述 SDK 阶段不包含 TIPD175 实际实现；TIPD175 后续进展见本文末尾。原理图自动生成、SPICE 验证和 PCB 布局仍未执行。
 
 ## 最终局部复测
 
 清理异常处理和类型注解补充后：`edg.expert.test_api` 6/6 通过（1.708 秒）；Black 以 Python 3.9 为目标检查 4 个源码文件通过；mypy 对新增包及改动核心文件检查通过（follow-imports=silent，不代表全仓库类型检查）。`git diff --check` 通过。
 
 远端 CI 本轮未启用：尝试新增开发分支 smoke workflow 时，GitHub 因 OAuth 授权缺少 workflow scope 拒绝推送，因此移除了该新增配置，再推送源码与文档。没有扩大用户授权范围。既有上游 workflow 保留原样，开发分支推送不触发其 master-only push 条件。后续可在用户需要时配置 Python 3.10／3.13 的相同 46 项 smoke tests。
+
+## TIPD175 实现阶段（2026-09-13）
+
+已使用 MinerU VLM 服务解析四份 TI PDF，在实现说明完成后添加 TIPD175 GeneratorBlock、明确供电／负载的夹具、Registry 注册项和离线导出入口。原理图逐引脚核对，保留四端 Kelvin 网络。资料和工件哈希见 tipd175-sources.json。
+
+复测命令在前述 46 项后加入 `edg.expert.test_tipd175`，最终 52/52 通过（33.795 秒）。新增覆盖原始／2 A 参数与料号、12 个元件的全部网络、位号映射、五类底层约束反例、严格 API 输入、独立节点矩阵解及角点失败状态。Black（py39）和 mypy（follow-imports=silent，专家包 6 个文件）检查通过。使用现有预编译 JAR，没有修改 Scala 或重建 JAR。
+
+独立 demo 为两个变体生成各 12 元件、10 网络的审查工件。发现并修复 FloatExpr 的 float32 表示导致 100 mΩ 参考料号误判的问题，以实际编译料号加入回归检查。制造状态为 false，角点余量失败保留；封装、SPICE 和硬件验证待后续完成。
