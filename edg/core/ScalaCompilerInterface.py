@@ -95,6 +95,8 @@ class ScalaCompilerInstance:
 
     def __init__(self) -> None:
         self.process: Optional[Any] = None
+        if os.environ.get("EDG_JRE_DIR"):
+            self.kInstallJrePath = Path(os.environ["EDG_JRE_DIR"]).expanduser().resolve()
 
     def check_started(self) -> None:
         if self.process is None:
@@ -189,11 +191,18 @@ class ScalaCompilerInstance:
         return design
 
     def close(self) -> None:
-        assert self.process is not None
-        self.process.stdin.close()
-        self.process.stdout.close()
-        self.process.stderr.close()
-        self.process.wait()
+        if self.process is None:
+            return
+        for stream in (self.process.stdin, self.process.stdout, self.process.stderr):
+            if stream is not None:
+                stream.close()
+        try:
+            self.process.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            self.process.kill()
+            self.process.wait()
+        finally:
+            self.process = None
 
 
 ScalaCompiler = ScalaCompilerInstance()
